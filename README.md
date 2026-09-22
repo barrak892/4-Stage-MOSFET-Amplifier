@@ -50,3 +50,51 @@ The amplifier is split into two main sections:
 
 Vin ──► [ CS Stage 1 ] ──► [ CS Stage 2 ] ──► [ CS Stage 3 ] ──► [ Source Follower ] ──► Vout
           Gain                  Gain                  Gain             Load Drive
+
+
+
+
+
+## Simulation & Verification
+
+The final design was checked using three SPICE analyses: **DC operating point, AC sweep, and transient response**.
+
+### DC Operating Point
+
+The DC operating-point simulation was used to confirm that the MOSFET stages were biased correctly and remained in their intended operating region.
+
+This was especially important because the amplifier only had a **3.3 V supply**, so poor biasing could quickly reduce the available signal swing or cause clipping.
+
+![DC Operating Point](simulations/dc_operating_point.png)
+
+---
+
+### AC Frequency Response
+
+The AC sweep was used to measure the overall voltage gain and bandwidth of the four-stage amplifier.
+
+The final design achieved:
+
+- **Midband gain:** ~62 dB
+- **Bandwidth:** ~13 MHz
+- **Required bandwidth:** 500 kHz
+
+![AC Frequency Response](simulations/ac_frequency_response.png)
+
+The amplifier therefore exceeded the original bandwidth requirement by a large margin while still meeting the required gain.
+
+---
+
+### Transient Response
+
+The transient simulation was used to inspect the actual output waveform rather than only looking at small-signal gain.
+
+The final output reached approximately:
+
+**1.61 Vpp**
+
+![Transient Response](simulations/transient_response.png)
+
+At the maximum tested swing, a small amount of clipping appears near the lower side of the waveform.
+
+This was one of the main tradeoffs encountered during the design: increasing the gain produced a larger output signal, but eventually pushed the transistor stages beyond their available voltage headroom.
