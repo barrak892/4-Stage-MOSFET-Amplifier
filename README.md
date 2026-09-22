@@ -56,7 +56,8 @@ The DC operating-point simulation was used to confirm that the MOSFET stages wer
 
 This was especially important because the amplifier only had a **3.3 V supply**, so poor biasing could quickly reduce the available signal swing or cause clipping.
 
-![DC Operating Point](simulations/dc_operating_point.png)
+![DC Operating Point](<img width="797" height="372" alt="image" src="https://github.com/user-attachments/assets/9a450115-1d37-4b04-9ad4-3348b54a0bce" />
+)
 
 ---
 
