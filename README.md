@@ -57,7 +57,9 @@ The DC operating-point simulation was used to confirm that the MOSFET stages wer
 This was especially important because the amplifier only had a **3.3 V supply**, so poor biasing could quickly reduce the available signal swing or cause clipping.
 
 DC Operating Point
-<img width="626" height="272" alt="acresponse" src="https://github.com/user-attachments/assets/a33d0c88-fc3c-4f19-a610-3960881de27a" />
+
+<img width="785" height="257" alt="DCop" src="https://github.com/user-attachments/assets/94d52d84-936c-4f72-8921-1a248c7810d3" />
+
 
 
 
@@ -73,7 +75,12 @@ The final design achieved:
 - **Bandwidth:** ~13 MHz
 - **Required bandwidth:** 500 kHz
 
-![AC Frequency Response](simulations/ac_frequency_response.png)
+AC Frequency Response
+
+<img width="626" height="272" alt="acresponse" src="https://github.com/user-attachments/assets/a33d0c88-fc3c-4f19-a610-3960881de27a" />
+
+
+
 
 The amplifier therefore exceeded the original bandwidth requirement by a large margin while still meeting the required gain.
 
@@ -87,7 +94,10 @@ The final output reached approximately:
 
 **1.61 Vpp**
 
-![Transient Response](simulations/transient_response.png)
+Transient Response
+
+<img width="552" height="317" alt="transientresp" src="https://github.com/user-attachments/assets/8bc29264-7a69-4f7f-8bd8-2469a2aa0b4a" />
+
 
 At the maximum tested swing, a small amount of clipping appears near the lower side of the waveform.
 
