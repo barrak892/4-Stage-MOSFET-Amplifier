@@ -41,6 +41,81 @@ The main challenge was getting **gain, bandwidth, signal quality, power consumpt
 
 ---
 
+## Final Circuit
+
+The final design uses **three cascaded common-source stages** to build voltage gain, followed by a **source-follower output stage** to drive the load without heavily loading the previous stages.
+
+<p align="center">
+  <img src="images/4-stage-mosfet-amplifier-schematic-wide.svg" width="100%" alt="Final four-stage MOSFET amplifier schematic">
+</p>
+
+Rather than keeping every stage identical, component values and transistor sizing were adjusted during simulation to balance gain, biasing, bandwidth, output swing, and loading.
+
+The first three MOSFETs form the voltage-gain core, while the final transistor is intentionally much wider to increase its drive capability and lower the effective output impedance.
+
+---
+
+## Design Iteration
+
+Getting high gain by itself was not the hardest part.
+
+The challenge was getting **high gain and a usable output waveform at the same time**.
+
+During simulation, I repeatedly ran into two extremes:
+
+- Strong gain and a large output signal, but noticeable clipping
+- A much cleaner waveform, but not enough gain to satisfy the 60 dB requirement
+
+The circuit therefore went through several iterations rather than coming directly from the first hand calculation.
+
+The parameters I spent the most time adjusting included:
+
+- MOSFET **width-to-length ratios (W/L)**
+- Bias resistor values
+- Drain resistances
+- Coupling capacitors
+- Individual stage operating points
+
+### MOSFET Sizing
+
+The three common-source gain transistors use approximately:
+
+**W/L = 25**
+
+The source-follower output transistor is considerably larger:
+
+**W/L = 200**
+
+The larger output device improves transconductance and load-driving capability, helping the amplifier drive the 10 kΩ load without significantly reducing the voltage gain created by the previous stages.
+
+Changing transistor size was always a tradeoff. A stronger device could improve gain or drive capability, but transistor sizing also affects current consumption and parasitic capacitance.
+
+### Gain vs. Signal Quality
+
+Because the amplifier operates from only **3.3 V**, there is a limited amount of voltage headroom available.
+
+As the signal becomes larger through each gain stage, eventually a transistor can no longer reproduce the full waveform. Once that limit is reached, the signal begins to clip.
+
+Reducing the gain improved the waveform, but could cause the amplifier to miss the required overall gain.
+
+The goal was therefore not simply to maximize gain, but to find a practical operating point where the amplifier could satisfy the specifications together.
+
+### Coupling Capacitors
+
+The stages are AC-coupled so each transistor can maintain its own DC bias point while passing the amplified AC signal forward.
+
+The capacitor values also influenced how effectively the signal passed between stages and therefore affected the frequency response.
+
+Their behaviour can be understood from:
+
+**Xc = 1 / (2πfC)**
+
+Smaller capacitance produces greater reactance at lower frequencies, which can attenuate part of the signal before it reaches the next stage.
+
+The capacitor values therefore had to be considered together with transistor sizing and biasing rather than treated as an independent design choice.
+
+---
+
 
 
 
