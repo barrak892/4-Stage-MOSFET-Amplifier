@@ -41,15 +41,6 @@ The main challenge was getting **gain, bandwidth, signal quality, power consumpt
 
 ---
 
-## Architecture
-
-The amplifier is split into two main sections:
-
-```text
-                 VOLTAGE GAIN                         OUTPUT BUFFER
-
-Vin ──► [ CS Stage 1 ] ──► [ CS Stage 2 ] ──► [ CS Stage 3 ] ──► [ Source Follower ] ──► Vout
-          Gain                  Gain                  Gain             Load Drive
 
 
 
