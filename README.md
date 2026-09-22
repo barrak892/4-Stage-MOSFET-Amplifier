@@ -1,8 +1,6 @@
 # 4-Stage-MOSFET-Amplifier
 
 
-# 4-Stage MOSFET Amplifier
-
 A low-power, high-gain MOSFET amplifier designed and simulated around a **3.3 V supply**.
 
 The goal was simple to describe but difficult to balance in practice: achieve **more than 60 dB of voltage gain**, maintain a useful bandwidth and output swing, drive a realistic load, and keep the entire amplifier below a **1 mW power budget**.
