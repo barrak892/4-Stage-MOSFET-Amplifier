@@ -46,7 +46,7 @@ The main challenge was getting **gain, bandwidth, signal quality, power consumpt
 The final design uses **three cascaded common-source stages** to build voltage gain, followed by a **source-follower output stage** to drive the load without heavily loading the previous stages.
 
 <p align="center">
-  <img src="images/4-stage-mosfet-amplifier-schematic-wide.svg" width="100%" alt="Final four-stage MOSFET amplifier schematic">
+  <img src="images/https://github.com/barrak892/4-Stage-MOSFET-Amplifier/blob/main/images/final_schematic.svg" width="100%" alt="Final four-stage MOSFET amplifier schematic">
 </p>
 
 Rather than keeping every stage identical, component values and transistor sizing were adjusted during simulation to balance gain, biasing, bandwidth, output swing, and loading.
