@@ -177,3 +177,23 @@ Transient Response
 At the maximum tested swing, a small amount of clipping appears near the lower side of the waveform.
 
 This was one of the main tradeoffs encountered during the design: increasing the gain produced a larger output signal, but eventually pushed the transistor stages beyond their available voltage headroom.
+
+---
+
+## Theory vs. Simulation
+
+The hand calculations gave an expected overall gain of about **67.4 dB**, while the final SPICE simulation came out closer to **62.0 dB**.
+
+That gap made sense once the full circuit was simulated. The hand calculations looked at the stages more independently, while the actual amplifier had loading between stages and non-ideal transistor effects.
+
+Some of the main reasons for the difference were:
+
+- Loading between the cascaded gain stages
+- The source follower having a gain slightly below 1 V/V
+- Finite MOSFET output resistance
+- Channel-length modulation and other transistor non-idealities
+
+The calculations were still useful for getting the design in the right range, but the final performance depended on how all four stages behaved together.
+
+
+---
